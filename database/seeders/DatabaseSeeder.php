@@ -31,18 +31,38 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('54321')
         // ]);
 
+        Category::create([
+            'name' => 'Coffee', 
+            'slug' => 'coffee'
+        ]);
 
         Category::create([
-            'name' => 'music', 
+            'name' => 'Music', 
             'slug' => 'music'
         ]);
+
+        Category::create([
+            'name' => 'Games', 
+            'slug' => 'games'
+        ]);
+
+        Category::create([
+            'name' => 'Computer', 
+            'slug' => 'computer'
+        ]);
+
+        Category::create([
+            'name' => 'Electronics', 
+            'slug' => 'electronics'
+        ]);
+
 
         Category::create([
             'name' => 'Programming', 
             'slug' => 'programming'
         ]);
 
-        Post::factory(20)->create();
+        Post::factory(24)->create();
 
         // Post::create([
         //     'title' => 'Judul Pertama', 
