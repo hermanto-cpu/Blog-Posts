@@ -9,26 +9,41 @@
             <form action="/register" method="post">
             @csrf
             <div class="form-floating">
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama">
+                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama" required value="{{ old('name') }}">
                 <h6><label for="name">Nama lengkap</label></h6>
                 @error ('name')
                 <div class="invalid-feedback">
                   <h6>{{ $message }}</h6>
                 </div>
                 @enderror
-                </div>  
+            </div>  
             <div class="form-floating">
-                <input type="text" name="username" class="form-control @error('name') is-invalid @enderror" id="username" placeholder="Username">
-                <h6><label for="name">Username</label></h6>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
+                <h6><label for="username">Username</label></h6>
+                @error ('username')
+                <div class="invalid-feedback">
+                  <h6>{{ $message }}</h6>
+                </div>
+                @enderror
                 </div>  
               <div class="form-floating">
-                <input type="email" class="form-control @error('name') is-invalid @enderror" name="email" id="email" placeholder="Email adress">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email adress" required value="{{ old('email') }}">
                 <h6><label for="email">Email address</label></h6>
+                @error ('email')
+                <div class="invalid-feedback">
+                  <h6>{{ $message }}</h6>
+                </div>
+                @enderror
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control @error('name') is-invalid @enderror" id="password" placeholder="Password">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required value="{{ old('password') }}">
                 <h6><label for="password">Password</label></h6>
-              </div>
+                @error ('password')
+                <div class="invalid-feedback">
+                  <h6>{{ $message }}</h6>
+                </div>
+                @enderror
+            </div>
 
               <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
             </form>
