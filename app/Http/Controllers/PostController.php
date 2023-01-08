@@ -13,7 +13,7 @@ class PostController extends Controller
             "title" => "All Post",
             'active' => 'post', 
             // "post" => Post::all()
-            "post" => Post::latest()->get()
+            "post" => Post::latest()->filter(request(['searrch']))->get()
         ]);
     }
 

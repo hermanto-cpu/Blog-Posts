@@ -19,13 +19,15 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home',[
-        "title" => "Home"
+        "title" => "Home", 
+        "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about',[
         "title" => "About",
+        "active" => "about", 
         "name" => "Hermanto Prastyawan",
         "email" => "hermanto9pras@gmail.com",
         "image" =>"IMG_7544.jpg"
@@ -33,7 +35,7 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/blog', [PostController::class, 'index'] );
+Route::get('/post', [PostController::class, 'index'] );
 
 //halaman single post
 Route::get('post/{post:slug}', [PostController::class, 'display']);
