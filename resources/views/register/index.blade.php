@@ -36,7 +36,7 @@
                 @enderror
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required value="{{ old('password') }}">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password" required>
                 <h6><label for="password">Password</label></h6>
                 @error ('password')
                 <div class="invalid-feedback">
