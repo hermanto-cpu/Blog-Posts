@@ -9,7 +9,7 @@
           <a class="nav-link {{ ($active === "home" ) ? 'active':''}}" href="/">Home <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "post" ) ? 'active':''}}" href="/blog">Blog</a>
+          <a class="nav-link {{ ($active === "post" ) ? 'active':''}}" href="/post">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($active === "categories" ) ? 'active':''}}" href="/categories">Categories</a>
@@ -18,5 +18,12 @@
           <a class="nav-link {{ ($active === "about" ) ? 'active':''}}" href="/about">About</a>
         </li> 
       </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a href="/login" class="nav-link {{ ($active === "login" ) ? 'active':''}}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+        </li>
+      </ul>
+      
     </div>
   </nav>
