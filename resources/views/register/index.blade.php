@@ -9,11 +9,11 @@
             <form action="/register" method="post">
             @csrf
             <div class="form-floating">
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama" required value="{{ old('name') }}">
+                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama" required value="{{ old('name') }}" autofocus>
                 <h6><label for="name">Nama lengkap</label></h6>
                 @error ('name')
                 <div class="invalid-feedback">
-                  <h6>{{ $message }}</h6>
+                  {{ $message }}
                 </div>
                 @enderror
             </div>  
