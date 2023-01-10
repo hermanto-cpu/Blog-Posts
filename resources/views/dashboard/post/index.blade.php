@@ -4,6 +4,13 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">My Posts</h1>
     </div>
+
+    @if (session('success'))
+        
+    @endif
+    <div class="alert alert-success" role="alert">
+      {{ session ('success') }}
+    </div>
     
     <div class="table-responsive col-lg-8">
       <a href="/dashboard/post/create" class="btn btn-primary">Create new post</a>
