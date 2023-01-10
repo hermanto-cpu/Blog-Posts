@@ -48,8 +48,13 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts', 
             'category_id' => 'required', 
+            'image' => 'image|file|max:4096', 
             'body' => 'required'
         ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
@@ -80,7 +85,10 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.post.edit',[
+            'posting'=> $post,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -92,7 +100,30 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'category_id' => 'required', 
+            'image' => 'image|file|max:4096', 
+            'body' => 'required'
+        ];
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|unique:posts';
+        }
+
+        $validatedData =$request->validate($rules);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
+
+        Post::where('id', $post->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/post')->with('success', 'Postingan berhasil diedit!');
+       
     }
 
     /**
@@ -101,9 +132,10 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
-        //
+    public function destroy(Post $posting)
+    {   
+        Post::destroy($posting->id);
+        return redirect('/dashboard/post')->with('success', 'Postingan berhasil dihapus!');
     }
 
     public function checkSlug(Request $request)

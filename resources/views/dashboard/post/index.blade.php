@@ -6,11 +6,11 @@
     </div>
 
     @if (session('success'))
-        
-    @endif
+    
     <div class="alert alert-success" role="alert">
       {{ session ('success') }}
     </div>
+    @endif
     
     <div class="table-responsive col-lg-8">
       <a href="/dashboard/post/create" class="btn btn-primary">Create new post</a>
@@ -29,9 +29,16 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $posting->title }}</td>
               <td>{{ $posting->category->name }}</td>
-              <td><a href="/dashboard/post/{{ $posting->slug }}" class="badge bg-info"><span data-feather="eye"></span></a></td>
-              <td><a href="/dashboard/post/{{ $posting->id }}" class="badge bg-success"><span data-feather="edit-3"></span></a></td>
-              <td><a href="/dashboard/post/{{ $posting->id }}" class="badge bg-danger"><span data-feather="x"></span></a></td>
+              <td><a href="/dashboard/post/{{ $posting->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+              <a href="/dashboard/post/{{ $posting->slug }}/edit" class="badge bg-success"><span data-feather="edit-3"></span></a>
+              <form action="/dashboard/post/{{ $posting->id }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="badge bg-danger border-0" onclick="return confirm ('Are you sure want to delete post?')">
+                  <span data-feather="x"></span>
+                </button>
+              </form>
+            </td>
             </tr>
             @endforeach
           </tbody>
