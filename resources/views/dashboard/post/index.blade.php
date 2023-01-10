@@ -6,6 +6,7 @@
     </div>
     
     <div class="table-responsive col-lg-8">
+      <a href="/dashboard/post/create" class="btn btn-primary">Create new post</a>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -28,5 +29,5 @@
             @endforeach
           </tbody>
         </table>
-      </div>
+    </div>
 @endsection
