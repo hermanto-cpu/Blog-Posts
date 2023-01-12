@@ -72,7 +72,7 @@
     </header>
 
     <main>
-        <h1>Blog adalah...</h1>
+        <h1>Apa Itu Blog?</h1>
         <p class="fs-5 col-md-8">Blog adalah website atau jurnal online yang memuat beragam informasi, seperti artikel, foto, atau video, yang selalu diperbarui secara rutin.</p>
     </main>
     </div>

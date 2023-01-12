@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="text-center">
-        <figure class="text-center">
+        <figure class="text-center mt-0">
             <blockquote class="blockquote">
               <p>Untuk mengetahui sebuah takdir, engga ada pilihan selain 
                 memberanikan dirimu.</p>
@@ -12,7 +12,7 @@
             </figcaption>
           </figure>
         <div class="text-left mt-3">
-            <h4 class="initialism border-top border-dark"><abbr title="about"> Tentang Penulis</abbr></h4>
+            <h4 class="initialism border-top border-dark mb-3"><u title="about"> Tentang Penulis</u></h4>
             <p class="h6"><em>{{ $name; }}</em></p>
             <p class="h6"><em>Sidoarjo, 25-04-2002</em></p>
             <p class="h6"><em>{{ $email; }}</em></p>

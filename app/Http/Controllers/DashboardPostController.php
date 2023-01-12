@@ -132,9 +132,10 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function delete(Post $posting)
+    public function destroy(Post $posting)
     {   
-        Post::delete($posting->id);
+        Post::destroy($posting->slug);
+        // dd($posting);
         return redirect('/dashboard/post')->with('success', 'Postingan berhasil dihapus!');
     }
 
