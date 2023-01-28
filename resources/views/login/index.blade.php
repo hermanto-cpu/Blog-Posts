@@ -2,15 +2,16 @@
 
 @section('container')
 <div class="row justify-content-center">
+  <div class="col-lg-4">
    @if(session()->has('succees')) 
-    <div class="col-lg-4">
+   <div class="col">
       <div class="alert alert-dark alert-dismissible fade show" role="alert">
         <h6>{{ session('succees') }}</h6>
       </div>
     @endif
 
     @if(session()->has('loginError')) 
-    <div class="col-lg-4">
+    <div class="col">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <h6>{{ session('loginError') }}</h6>
       </div>
